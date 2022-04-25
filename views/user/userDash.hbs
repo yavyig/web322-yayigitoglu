@@ -1,0 +1,103 @@
+{{! /************************************************************************************
+* WEB322 â€“ Project (Winter 2022)
+* I declare that this assignment is my own work in accordance with Seneca Academic
+* Policy. No part of this assignment has been copied manually or electronically from
+* any other source (including web sites) or distributed to other students.
+*
+* Name: Yavuz Alper Yigitoglu
+* Student ID: 127785186
+* Course/Section: WEB322/NDD
+*
+************************************************************************************/ }}
+
+{{#if justLoggedIn}}
+  <h3 class="registrationSuccess">Hello
+    {{user.firstname}}, you successfully logged in!</h3><br />
+{{/if}}
+
+{{#if isCustomer}}
+  <h3 class="registrationSuccess">CUSTOMER DASHBOARD</h3><br />
+  <div id="black_background">
+
+    <h1>Hello {{user.firstname}} {{user.lastname}}</h1>
+    <h3 class="tabledescription">We are happy to see you again.</h3>
+    <br />
+
+  {{#if cart}}
+  {{#unless isEmpty}}
+
+
+ <form method="post" action="/user/updateQuantity">
+   <fieldset class="centerIt">
+    <legend class="centerIt">
+      <h3>Shopping Cart</h3>
+    </legend>
+    <table class="centerIt">
+
+<tr>
+  <td >  <p class="centerIt"></p></td>
+  <td >  <p class="centerIt">Quantity</p></td>
+ <td >  <p class="centerIt">Item Title</p></td>
+  <td >  <p class="centerIt">Extended Price</p></td>
+
+    </tr>
+
+  {{#each cart}}
+  {{#if qty}}
+   <form method="post" action="/user/updateQuantity">
+<tr>
+  <td>    <input class="lMargin" type="submit" value="Update" /></td>
+ <td>   <input class="inputCart" type="number" id="quantity" name="quantity" min="0" value="{{qty}}"></td>
+ <td>      <input type="text" id="title" name="title" value="{{currentMeal.title}}" readonly></td>
+  <td>     <input type="text" id="priceEach" name="priceEach" value="${{currentMeal.price}}*{{qty}}=${{totalPrice}}" readonly></td>
+    </tr>
+
+    <tr>
+    <th  colspan="4"> <input type="text" id="id" name="id" value="{{currentMeal._id}}" readonly hidden> </th>
+     </tr>
+      </form>
+      {{/if}}
+  {{/each}}
+  </table>
+  <hr>
+  <h3 class="centerIt">Total Order Price = ${{cartTotalPrice}}</h3>
+
+        <div class="detailsSubmit">
+            <div>     
+      {{!-- <input class="lMargin" type="submit" value="Update Quantity" /> --}}
+    </div>
+</form>
+
+
+
+   <form method="post" action="/user/placeOrder">
+
+<textarea id="myMessage" name="myMessage" hidden >
+ {{#each cart}}
+  {{#if qty}}
+<i>{{currentMeal.title}}</i> *<b>{{qty}}</b><br>
+      {{/if}}
+  {{/each}}
+</textarea>
+
+        <div>     
+      <input class="rMargin" type="submit" value="Place Order" />
+    </div>
+    </div>  {{!-- details --}}
+  </form>
+  <br>
+  {{else}}
+        <h3>Your shopping cart is empty.</h3>
+      {{/unless}}
+
+  {{else}}
+      <h3>Your shopping cart is empty.</h3>
+      {{/if}}
+
+  </div>
+
+
+
+
+
+{{/if}}

@@ -1,0 +1,38 @@
+{{!-- /************************************************************************************
+* WEB322 â€“ Project (Winter 2022)
+* I declare that this assignment is my own work in accordance with Seneca Academic
+* Policy. No part of this assignment has been copied manually or electronically from
+* any other source (including web sites) or distributed to other students.
+*
+* Name: Yavuz Alper Yigitoglu
+* Student ID: 127785186
+* Course/Section: WEB322/NDD
+*
+************************************************************************************/ --}}
+
+            <h1>Top Meals</h1><hr><br>
+ 
+{{>mealkit}}<br> 
+            {{#each getCategory}}
+            <h1>{{category}}</h1>
+            <hr><br>
+        
+<div class="wrapper">
+            {{#each items}}
+            
+    <div id="column">
+           {{items.title}}
+                    <div id="topMeals_four">
+                     <a href="/mealKitDesc/{{_id}}" ><img src="{{mealPic}}" /></a>
+                       <h4 class="blue">{{title}}</h4>
+                     <p class="altText">with {{whatsIncluded}}</p>
+                      <a class="price" href="/mealKitDesc/{{_id}}">${{price}}</a>
+                      </div>
+    </div>
+            {{/each}}
+</div>
+            {{/each}}
+
+
+
+

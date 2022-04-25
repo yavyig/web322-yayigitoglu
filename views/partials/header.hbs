@@ -1,0 +1,33 @@
+{{!-- /************************************************************************************
+* WEB322 â€“ Project (Winter 2022)
+* I declare that this assignment is my own work in accordance with Seneca Academic
+* Policy. No part of this assignment has been copied manually or electronically from
+* any other source (including web sites) or distributed to other students.
+*
+* Name: Yavuz Alper Yigitoglu
+* Student ID: 127785186
+* Course/Section: WEB322/NDD
+*
+************************************************************************************/ --}}
+
+<div id="nav">
+    <div id="img_nav">
+        <a href="/"><img class="header" src="/images/ToothSomeLogo.png" /></a>
+    </div>
+    <div id="onTheMenu">
+        <a class="header" href="/onthemenu">On the menu</a>
+    </div>
+    {{#if user}}
+{{#if isClerk}}
+        <div id="login"><a class="header login" href="/user/clerkDash">Hello {{user.firstname}}</user></a></div>
+
+        {{else}}
+        <div id="login"><a class="header login" href="/user/userDash">Hello {{user.firstname}}</user></a></div>
+{{/if}}
+    <div id="signup"><a class="header signup" href="/logoff">Sign out</a></div>
+
+    {{else}}
+    <div id="login"><a class="header login" href="/user/login">Log in</a></div>
+    <div id="signup"><a class="header signup" href="/user/signup">Sign up</a></div>
+{{/if}}
+</div>

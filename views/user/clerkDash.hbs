@@ -1,0 +1,398 @@
+{{! /************************************************************************************
+* WEB322 â€“ Project (Winter 2022)
+* I declare that this assignment is my own work in accordance with Seneca Academic
+* Policy. No part of this assignment has been copied manually or electronically from
+* any other source (including web sites) or distributed to other students.
+*
+* Name: Yavuz Alper Yigitoglu
+* Student ID: 127785186
+* Course/Section: WEB322/NDD
+*
+************************************************************************************/ }}
+
+{{#if justLoggedIn}}
+  <h3 class="registrationSuccess">Hello
+    {{user.firstname}}, you successfully logged in!</h3><br />
+{{/if}}
+
+{{#if isClerk}}
+  <h3 class="registrationSuccess">CLERK DASHBOARD</h3><br />
+
+  <div id="black_background">
+
+    <h1>Hello {{user.firstname}} {{user.lastname}}</h1>
+    <h3 class="tabledescription">Welcome back! Right now you are on the clerk
+      dashboard page. You can add, edit, or delete mealkits on this page!</h3>
+    <br />
+
+    <div id="" class="centerItload"><a
+        class="header login"
+        href="/load-data/meal-kits"
+      >Load Data</a></div><br>
+
+    {{! ADDING MEALKIT DATA }}
+    <form method="post" action="/user/clerkDash" enctype="multipart/form-data">
+      <fieldset class="centerIt">
+        <legend class="centerIt">
+          <h3>Add a Mealkit</h3>
+        </legend>
+        <table class="centerIt">
+          <tr>
+            <th>
+                 {{#if validationMessage}}
+              {{#if success}}
+                <i class="formSuccess">{{validationMessage}}</i><br/><br/>
+              {{else}}
+                <i class="formError">{{validationMessage}}</i>
+                <br /><br />
+              {{/if}}
+               {{/if}}
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <input
+                placeholder="Title"
+                type="text"
+                name="title"
+                id="title"
+                required
+                value="{{values.title}}"
+              />
+              <br />
+  
+            </th>
+          </tr>
+
+          <tr>
+            <th><input
+                placeholder="What is included?"
+                type="text"
+                name="whatsIncluded"
+                id="whatsIncluded"
+                required
+                value="{{values.whatsIncluded}}"
+              />
+              <br />
+
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+
+              <textarea
+                id="description"
+                name="description"
+                value="{{values.description}}"
+                placeholder="Enter description here..."
+                required
+              >{{values.description}}</textarea>
+              <br />
+       
+            </th>
+          </tr>
+
+          <tr>
+            <th><input
+                placeholder="Category"
+                type="text"
+                name="category"
+                id="category"
+                required
+                value="{{values.category}}"
+              />
+              <br />
+   
+            </th>
+          </tr>
+
+          <tr>
+            <th><input
+                placeholder="Price"
+                type="text"
+                name="price"
+                id="price"
+                required
+                value="{{values.price}}"
+              />
+              <br />
+     
+            </th>
+          </tr>
+
+          <tr>
+            <th><input
+                placeholder="Cooking Time"
+                type="text"
+                name="cookingTime"
+                id="cookingTime"
+                required
+                value="{{values.cookingTime}}"
+              />
+              <br />
+  
+            </th>
+          </tr>
+
+          <tr>
+            <th><input
+                placeholder="Servings"
+                type="text"
+                name="servings"
+                id="servings"
+                required
+                value="{{values.servings}}"
+              />
+              <br />
+  
+            </th>
+          </tr>
+
+          <tr>
+            <th><input
+                placeholder="Calories Per Serving"
+                type="text"
+                name="caloriesPerServing"
+                id="caloriesPerServing"
+                value="{{values.caloriesPerServing}}"
+                required
+              />
+              <br />
+
+            </th>
+          </tr>
+
+          <tr><td>
+              <input
+                type="checkbox"
+                id="isTopMeal"
+                name="isTopMeal"
+                value="true"
+              />
+              <label for="isTopMeal">Is it a Top Meal?</label><br />
+              <br />
+            </td></tr>
+          <tr>
+            <td>
+
+              <label for="mealPic">Meal Picture</label><br />
+              <input type="file" id="mealPic" name="mealPic" required />
+
+
+            </td>
+          </tr>
+        </table>
+        <hr />
+        <div class="centerIt">
+          <input class="centerIt" type="submit" value="Add Mealkit" />
+        </div>
+      </fieldset>
+    </form><br />
+
+  </div>
+  <br><hr><br>
+  <div id="black_background">
+{{#each mealKitData}}
+{{#each items}}
+
+    <form method="post" action="/user/updateDash" enctype="multipart/form-data">
+      <fieldset class="centerIt">
+        <legend class="centerIt">
+     
+           <h4>Update <i>{{title}}</i></h3>
+        </legend>
+        <table class="centerIt">
+          <tr>
+
+            </th>
+          </tr>
+          <tr>
+            <th>
+             <label for="title">Title<br></label>
+              <input
+                placeholder="Title"
+                type="text"
+                name="title"
+                id="title"
+                required
+                value="{{title}}"
+              />
+              <br /><br>
+            </th>
+          </tr>
+
+          <tr>
+                 
+            <th><label for="whatsIncluded">Included<br></label><input
+                placeholder="What is included?"
+                type="text"
+                name="whatsIncluded"
+                id="whatsIncluded"
+                required
+                value="{{whatsIncluded}}"
+              />
+              <br /><br>
+            </th>
+          </tr>
+
+          <tr>
+                 <th><label for="description">Description<br></label>
+              <textarea
+                id="description"
+                name="description"
+                value={{description}}
+                placeholder="Enter description here..."
+                required
+              >{{description}}</textarea>
+              <br /><br>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+                          <label for="category">Category<br></label>
+              <input
+                placeholder="Category"
+                type="text"
+                name="category"
+                id="category"
+                required
+                value="{{category}}"
+              />
+              <br /><br>
+            </th>
+          </tr>
+
+          <tr>
+            <th>
+                          <label for="price">Price<br></label><input
+                placeholder="Price"
+                type="text"
+                name="price"
+                id="price"
+                required
+                value={{price}}
+              />
+              <br /><br>
+            </th>
+          </tr>
+
+          <tr>
+            <th>            <label for="cookingTime">Cooking Time<br></label><input
+                placeholder="Cooking Time"
+                type="text"
+                name="cookingTime"
+                id="cookingTime"
+                required
+                value="{{cookingTime}}"
+              />
+              <br /><br>
+            </th>
+          </tr>
+
+          <tr>
+            <th>            <label for="servings">Servings<br></label><input
+                placeholder="Servings"
+                type="text"
+                name="servings"
+                id="servings"
+                required
+                value="{{servings}}"
+              />
+              <br /><br>
+            </th>
+          </tr>
+
+          <tr>
+            <th>            <label for="caloriesPerServing">Calories Per Serving<br></label><input
+                placeholder="Calories Per Serving"
+                type="text"
+                name="caloriesPerServing"
+                id="caloriesPerServing"
+                value="{{caloriesPerServing}}"
+                required
+              />
+              <br /><br>
+            </th>
+          </tr>
+
+          <tr>
+            <th><input
+                placeholder="Calories Per Serving"
+                type="text"
+                name="_id"
+                id="_id"
+                value="{{_id}}"
+                required
+                hidden
+              />
+              
+            </th>
+          </tr>
+
+
+  <tr>
+            <th><label for="caloriesPerServing">Is it a Top Meal? (true,false)<br></label><input
+                placeholder="{{isTopMeal}}"
+                type="text"
+                name="isTopMeal"
+                id="isTopMeal"
+                value="{{isTopMeal}}"
+                required
+              />
+              <br /><br>
+            </th>
+          </tr>
+
+          <tr>
+            <td>
+
+              <img src={{mealPic}} class="ico">
+              <label for="mealPic">Meal Picture</label><br />
+              <input type="file" id="mealPic" name="mealPic" value="{{mealPic}}" />
+
+
+            </td>
+          </tr>
+        </table>
+        <hr />
+      <div class="centerIt">
+          <input class="centerIt" type="submit" value="Update Mealkit" />
+
+     
+    </form><br />
+<form method="post" action="/user/deleteDash">
+          <input class="centerIt rMargin" type="submit" value="Delete Mealkit" />
+
+          {{!-- add stuff below --}}
+           <input
+                placeholder="Title"
+                type="text"
+                name="title"
+                id="title"
+                required
+                hidden
+                value="{{title}}"
+              />
+<input
+                placeholder="Calories Per Serving"
+                type="text"
+                name="_id"
+                id="_id"
+                value="{{_id}}"
+                required
+                hidden
+              />
+          {{!-- stuff is above --}}
+        </div>
+</form>
+     </fieldset>
+     <br> <hr><br>
+
+  
+{{/each}}
+{{/each}}
+</div>
+
+{{/if}}

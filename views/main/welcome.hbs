@@ -1,0 +1,31 @@
+{{! /************************************************************************************
+* WEB322 â€“ Project (Winter 2022)
+* I declare that this assignment is my own work in accordance with Seneca Academic
+* Policy. No part of this assignment has been copied manually or electronically from
+* any other source (including web sites) or distributed to other students.
+*
+* Name: Yavuz Alper Yigitoglu
+* Student ID: 127785186
+* Course/Section: WEB322/NDD
+*
+************************************************************************************/ }}
+
+{{#if registration}}
+  <h3 class="registrationSuccess">You Registered Successfully</h3><br />
+
+  <div id="black_background">
+    <h1>Hi, {{firstname}} {{lastname}}</h1>
+    <h3 class="tabledescription">Thank you for registering. We are grateful for
+      your interest. We will do our best to provide you with delectable Turkish
+      cuisine.
+    </h3>
+  </div>
+{{else}}
+  <div id="black_background">
+    <h1>Hi, {{firstname}} {{lastname}}</h1>
+    <h3 class="tabledescription">Greetings, and welcome to Toothsome Express. We
+      appreciate your enthusiasm. Before placing an order, please consider
+      signing up.
+    </h3>
+  </div>
+{{/if}}

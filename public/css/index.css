@@ -1,0 +1,524 @@
+/************************************************************************************
+* WEB322 â€“ Project (Winter 2022)
+* I declare that this assignment is my own work in accordance with Seneca Academic
+* Policy. No part of this assignment has been copied manually or electronically from
+* any other source (including web sites) or distributed to other students.
+*
+* Name: Yavuz Alper Yigitoglu
+* Student ID: 127785186
+* Course/Section: WEB322/NDD
+*
+************************************************************************************/
+
+html {
+  background-image: url("/images/concrete_wall.png");
+  background-repeat: repeat-x repeat-y;
+  background-color: rgb(43, 43, 43);
+  margin: 5%;
+  height: 100%;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  height: 100%;
+  padding: 10px;
+  max-width: 1000px;
+  margin: auto;
+}
+img.header {
+  width: 150px;
+}
+a.header {
+  text-decoration: none;
+  font-weight: 900;
+}
+a.header:link,
+a.header:visited {
+  color: blanchedalmond;
+}
+a.header:hover {
+  color: rgb(239, 255, 10);
+  cursor: pointer;
+}
+#nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  display: flex;
+  overflow: auto;
+  background: rgb(54, 11, 11);
+  border-style: solid;
+  border-color: goldenrod;
+  border-width: 1px;
+  z-index: 999;
+}
+
+#img_nav {
+  margin: 2px;
+}
+#onTheMenu {
+  background: rgba(255, 255, 255, 0.103);
+  margin: 10px;
+  padding-top: 17px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+#login {
+  background: rgba(41, 95, 19, 0.452);
+  margin: 10px;
+  padding-top: 17px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-left: auto;
+}
+#signup {
+  background: rgba(216, 62, 62, 0.432);
+  padding-top: 17px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin: 10px;
+}
+
+#onTheMenu:hover {
+  background: rgba(255, 255, 255, 0.39);
+  cursor: pointer;
+}
+#login:hover {
+  background: rgb(41, 95, 19);
+  cursor: pointer;
+}
+#signup:hover {
+  background: rgb(216, 62, 62);
+  cursor: pointer;
+}
+
+
+
+/* HERO */
+.heroimg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/images/turkish_hero.jpg");
+  position: relative;
+  background-size: cover;
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+}
+
+.herotext {
+  color: white;
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.mealKitHeroText {
+  color: white;
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -40%);
+  left: 50%;
+  top: 50%;
+}
+
+button {
+  background-color: #4caf50;
+  padding: 15px 32px;
+  border: none;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  display: inline-block;
+  padding-right: 100px;
+  padding-left: 100px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+button:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+  cursor: pointer;
+}
+
+#howitWorks {
+  border-style: solid;
+  border-color: goldenrod;
+  border-width: 1px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.274);
+}
+#howitWorks_h3 {
+  padding: 10px;
+}
+#howitWorks_h3 a h3:hover {
+  color: orangered;
+  cursor: pointer;
+}
+#howitWorks_h3 a {
+  text-decoration: none;
+  color: blanchedalmond;
+}
+#howitWorks_h3 a:visited {
+  text-decoration: none;
+  color: blanchedalmond;
+}
+
+th img {
+  width: 50%;
+  border-radius: 50%;
+  margin: auto;
+}
+#contentTable {
+  overflow-x: auto;
+  background-color: #0514063f;
+  border-radius: 20px;
+}
+h3.tabledescription {
+  color: orange;
+}
+td.tabledescription {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+div#topMeals {
+  background: rgba(0, 0, 0, 0.377);
+  display: flex;
+  padding: 2%;
+  justify-content: space-between;
+  border-radius: 20px;
+  overflow-x: auto;
+  flex: 50%;
+}
+
+#topMeals_one {
+  background: rgb(245, 245, 245);
+  width: 31.33%;
+  height: 320px;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  overflow-x: auto;
+}
+#topMeals_two {
+  background: rgb(245, 245, 245);
+  /* width: 90%; */
+  height: 100%;
+  /* max-height: 500px; */
+
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  /* margin-right: 10px; */
+  margin: 10px;
+}
+
+
+#topMeals_two img{
+  max-width: 100%;
+  width:100%;
+  max-height: 250px;
+  /* height: 400px; */
+  object-fit:cover;
+  
+}
+
+#topMeals_three {
+  background: rgb(245, 245, 245);
+  /* width: 90%; */
+  height: 300px;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  /* margin-right: 10px; */
+  margin: 10px;
+  
+}
+
+
+#topMeals_four {
+  background: rgb(245, 245, 245);
+  /* width: 90%; */
+  height: 380px;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  margin: 10px;
+
+  /* flex: 100%; */
+}
+#topMeals_one:hover,
+#topMeals_two:hover,
+#topMeals_three:hover,
+#topMeals_four:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+}
+#topMeals_one img,
+/* #topMeals_two img, */
+#topMeals_three img,
+#topMeals_four img {
+  max-width: 100%;
+  width:100%;
+  /* max-height: 66%; */
+  height: 50%;
+  object-fit:cover;
+  
+}
+h4.blue {
+  color: rgb(14, 90, 151);
+  margin-left: 15px;
+  margin-right: 15px;
+}
+p.altText {
+  color: gray;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+div.details{
+background-color: rgba(240, 248, 255, 0.37);
+text-decoration: none;
+color: rgb(0, 0, 0);
+/* bottom: 5px; */
+width: 100%;
+border-top-right-radius: 20px;
+border-top-left-radius: 20px;
+
+
+display: flex;
+justify-content: space-evenly;
+max-width: 100%;
+margin: 0 auto;
+
+padding: 10px 0;
+}
+
+div.detailsSubmit{
+  /* background-color: rgba(240, 248, 255, 0.37); */
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+
+  width: 100%;
+  display: flex;
+  justify-content:center ;
+  max-width: 100%;
+  margin: 0 auto;  
+  padding: 10px 0;
+  }
+
+a.price {
+  text-decoration: none;
+  color: rgb(14, 90, 151);
+  border-style: solid;
+  padding: 3px 25px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+a.price:visited,
+a.price:link {
+  color: rgb(14, 90, 151);
+}
+a.price:hover {
+  background: rgb(202, 202, 202);
+}
+
+div#footer {
+  background: rgb(54, 14, 14);
+  display: block;
+  padding: 15px 15px 0px 15px;
+  overflow-x: auto;
+}
+#childfooter2 {
+  display: flex;
+  justify-content: space-between;
+}
+#childfooter2 {
+  display: flex;
+  justify-content: space-between;
+}
+#col {
+  margin: 0 auto;
+}
+#tablefooter {
+  width: 100%;
+}
+#tablecol2 {
+  text-align: right;
+  font-size: 10px;
+}
+#tablecol1 {
+  text-align: left;
+  font-size: 10px;
+}
+.footerlink {
+  display: block;
+  text-decoration: none;
+  line-height: 30px;
+}
+
+a.footerlink:link,
+a.footerlink:visited {
+  color: blanchedalmond;
+}
+a.footerlink:hover {
+  color: rgb(239, 255, 10);
+  cursor: pointer;
+}
+
+p.footerright {
+  text-align: right;
+}
+p.footerrightsmall {
+  text-align: right;
+  font-size: 10px;
+}
+img.ico {
+  margin-right: 10px;
+  width: 24px;
+  float: right;
+}
+#copyright {
+  text-align: center;
+  text-shadow: 2px 2px #000000;
+}
+
+div.twoCategory {
+  display: flex;
+  padding: 2%;
+  /* justify-content: space-between; */
+}
+
+fieldset {
+  background-color: rgba(0, 0, 0, 0.555);
+  color: white;
+  width: 25%;
+}
+
+.centerIt {
+  margin-left: auto;
+  margin-right: auto;
+}
+h3.centerIt,
+p.centerIt {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.centerIt {
+  display: flex;
+  justify-content: center;
+}
+
+div.centerItload {
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(41, 95, 19, 0.452);
+  padding-top: 17px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 16px;
+}
+div.centerItload:hover {
+  background: rgb(53, 61, 49);
+  cursor: pointer;
+}
+
+.formError {
+  margin-left: 15px;
+  margin-right: 15px;
+  font-size: 13px;
+  font-weight: lighter;
+  color: rgba(255, 0, 0, 0.637);
+}
+.formSuccess {
+  margin-left: 15px;
+  margin-right: 15px;
+  font-size: 13px;
+  font-weight: lighter;
+  color: rgba(0, 255, 64, 0.637);
+}
+
+.registrationSuccess {
+  background-color: #4caf50;
+  color: white;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.registrationNotSuccess {
+  background-color: #be2222;
+  color: white;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.registrationMaySuccess {
+  background-color: #fac000;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+div#black_background {
+  background-color: #0000004b;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  
+}
+
+.column {
+  display: block;
+  /* flex: 40%; */
+  /* width: 40%; */
+ 
+}
+
+.wrapper {
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+  /* background: rgba(0, 0, 0, 0.377); */
+  border-radius: 20px;
+}
+
+.wrapper2 {
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+padding: 10px;
+  /* background: rgba(0, 0, 0, 0.377); */
+  border-radius: 20px;
+}
+
+.rMargin{
+  margin-right: 23px;
+}
+
+textarea {
+  width: 61%;
+}
+
+input.inputCart {
+  width: 53px;
+}
+
+/* .lMargin{
+margin-left: auto;
+margin-right: 5px;
+} */
+/* .rMargin{
+  margin-right: auto;
+  margin-left: 5px;
+} */

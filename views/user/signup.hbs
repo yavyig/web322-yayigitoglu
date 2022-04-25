@@ -1,0 +1,84 @@
+{{! /************************************************************************************
+* WEB322 â€“ Project (Winter 2022)
+* I declare that this assignment is my own work in accordance with Seneca Academic
+* Policy. No part of this assignment has been copied manually or electronically from
+* any other source (including web sites) or distributed to other students.
+*
+* Name: Yavuz Alper Yigitoglu
+* Student ID: 127785186
+* Course/Section: WEB322/NDD
+*
+************************************************************************************/ }}
+
+<form method="post" action="/user/signup">
+  <fieldset class="centerIt">
+    <legend class="centerIt">
+      <h3>Sign Up</h3>
+    </legend>
+    <table class="centerIt">
+      <tr>
+        <th>
+          <p class="altText">Fill in your name, e-mail address, and password to
+            create an account.</p>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <input
+            placeholder="First Name*"
+            type="text"
+            name="firstname"
+            id="firstname"
+            value="{{values.firstname}}"
+          />
+          <br />
+          <i class="formError">{{validationMessage.firstname}}</i>
+        </th>
+      </tr>
+
+      <tr>
+        <th><input
+            placeholder="Last Name*"
+            type="text"
+            name="lastname"
+            id="lastname"
+            value="{{values.lastname}}"
+          />
+          <br />
+          <i class="formError">{{validationMessage.lastname}}</i>
+        </th>
+      </tr>
+
+      <tr>
+        <th><input
+            placeholder="email@domain.com*"
+            type="text"
+            name="email"
+            id="email"
+            value="{{values.email}}"
+          />
+          <br />
+          <i class="formError">{{validationMessage.email}}</i>
+        </th>
+      </tr>
+
+      <tr>
+        <th><input
+            placeholder="Password*"
+            type="password"
+            name="password"
+            id="password"
+            value="{{values.password}}"
+          />
+          <br />
+          <i class="formError">{{validationMessage.password}}</i>
+        </th>
+      </tr>
+
+    </table>
+    <hr />
+    <div class="centerIt">
+      <input class="centerIt" type="submit" value="Sign Up" />
+    </div>
+  </fieldset>
+</form><br />
